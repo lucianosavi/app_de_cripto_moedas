@@ -66,7 +66,8 @@ class _MoedasDetailsState extends State<MoedasDetails> {
                       color: Colors.grey),
                 ),
               ],
-            )
+            ),
+            Image.asset(widget.moedas.grafico)
           ],
         ),
       ),
