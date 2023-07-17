@@ -28,25 +28,45 @@ class _MoedasDetailsState extends State<MoedasDetails> {
             Padding(
               padding: EdgeInsets.only(bottom: 24),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 50,
+                    width: 150,
                     child: Image.asset(widget.moedas.icone),
                   ),
-                  Container(width: 10),
+                  Container(width: 100),
                   Text(
-                    real.format(widget.moedas.preco),
-                    style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: -1,
-                        color: Colors.grey),
-                  )
+                    widget.moedas.sigla,
+                    style: TextStyle(fontSize: 50),
+                  ),
                 ],
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Valor Antigo:'),
+                Text(
+                  real.format(widget.moedas.preco),
+                  style: TextStyle(
+                      fontSize: 16,
+                      // fontWeight: FontWeight.w600,
+                      letterSpacing: -1,
+                      color: Colors.grey),
+                ),
+                Text('Valor Atual'),
+                Text(
+                  real.format(widget.moedas.preco),
+                  style: TextStyle(
+                      fontSize: 16,
+                      // fontWeight: FontWeight.w600,
+                      letterSpacing: -1,
+                      color: Colors.grey),
+                ),
+              ],
+            )
           ],
         ),
       ),
