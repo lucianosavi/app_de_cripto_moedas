@@ -42,7 +42,9 @@ class _MoedasPageState extends State<MoedasPage> {
                 tabela[moeda].icone,
                 width: 88,
               ),
-              title: Text(tabela[moeda].nome + tabela[moeda].sigla),
+              title: Row(
+                children: [Text(tabela[moeda].nome)],
+              ),
               trailing: Text(tabela[moeda].preco.toString()),
               onTap: () => mostrarDetalhes(tabela[moeda]),
             );
