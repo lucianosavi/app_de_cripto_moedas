@@ -12,6 +12,7 @@ class MoedasPage extends StatefulWidget {
 
 class _MoedasPageState extends State<MoedasPage> {
   final tabela = MoedasRepository.tabela;
+  var profitsAtual = 6.00;
   @override
   void initState() {
     super.initState();
@@ -45,7 +46,15 @@ class _MoedasPageState extends State<MoedasPage> {
               title: Row(
                 children: [Text(tabela[moeda].nome)],
               ),
-              trailing: Text(tabela[moeda].preco.toString()),
+              trailing: tabela[moeda].profits > profitsAtual
+                  ? Text(
+                      tabela[moeda].profits.toString(),
+                      style: TextStyle(color: Colors.green),
+                    )
+                  : Text(
+                      tabela[moeda].profits.toString(),
+                      style: TextStyle(color: Colors.red),
+                    ),
               onTap: () => mostrarDetalhes(tabela[moeda]),
             );
           },

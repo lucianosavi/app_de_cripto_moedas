@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/moeda.dart';
 import 'package:intl/intl.dart';
+import 'moedas_pages.dart';
 
 class MoedasDetails extends StatefulWidget {
   Moeda moedas;
@@ -12,7 +13,20 @@ class MoedasDetails extends StatefulWidget {
 }
 
 class _MoedasDetailsState extends State<MoedasDetails> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    newValue();
+  }
+
   NumberFormat real = NumberFormat.currency(locale: 'pt_BR', name: 'R\$');
+
+  var valorAtual = 0.00;
+
+  newValue() {
+    valorAtual = widget.moedas.preco - widget.moedas.profits;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +72,7 @@ class _MoedasDetailsState extends State<MoedasDetails> {
                 ),
                 Text('Valor Atual'),
                 Text(
-                  real.format(widget.moedas.preco),
+                  real.format(valorAtual),
                   style: TextStyle(
                       fontSize: 16,
                       // fontWeight: FontWeight.w600,
@@ -67,7 +81,7 @@ class _MoedasDetailsState extends State<MoedasDetails> {
                 ),
               ],
             ),
-            Image.asset(widget.moedas.grafico)
+            Image.asset(widget.moedas.grafico),
           ],
         ),
       ),
